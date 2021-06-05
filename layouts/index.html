@@ -1,0 +1,7 @@
+{{ define "main" }}
+	<ul id="og-grid" class="og-grid">
+		{{ range $.Site.Data.artworks }}
+			{{ partial "art.html" . }}
+		{{ end }}
+	</ul>
+{{ end }}

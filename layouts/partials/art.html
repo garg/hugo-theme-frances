@@ -1,0 +1,16 @@
+{{ range .artworks }}                       
+{{ $imagePath := printf "%s" .image }}
+{{- $image := resources.Get $imagePath -}}
+<li>
+                                <a
+                                        href=""
+                                        data-largesrc="{{ .image }}"
+                                        data-title="{{ .title }}"
+                                        data-mediums="{{ .mediums }}"
+                                        data-dimensions="{{ .dimensions }}"
+                                        data-description="{{ .description }}">
+                                        <img class="d-none d-sm-block" src="{{ ($image.Fit "600x400").Permalink }}" alt="{{ .alt }}">
+                                        <img class="d-block d-sm-none" src="{{ $image.Permalink }}" alt="{{ .alt }}">
+                                </a>
+</li>
+{{ end }}
